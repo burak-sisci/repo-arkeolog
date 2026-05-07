@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "repoarkeolog-backend"
 version = "0.1.0"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.13"
 dependencies = [
     # Web framework
     "fastapi>=0.111.0",
@@ -25,6 +25,7 @@ dependencies = [
     # AI / LLM
     "google-generativeai>=0.7.2",
     "groq>=0.9.0",
+    "cerebras-cloud-sdk>=1.0.0",
     # Vector DB
     "qdrant-client>=1.9.1",
     # Git & code analysis
@@ -33,6 +34,14 @@ dependencies = [
     "tree-sitter-python>=0.22.0",
     "tree-sitter-javascript>=0.22.0",
     "tree-sitter-typescript>=0.22.0",
+    "tree-sitter-java>=0.23.0",
+    "tree-sitter-go>=0.23.0",
+    "tree-sitter-rust>=0.23.0",
+    "tree-sitter-c>=0.23.0",
+    "tree-sitter-cpp>=0.23.0",
+    "tree-sitter-c-sharp>=0.23.0",
+    "tree-sitter-ruby>=0.23.0",
+    "tree-sitter-php>=0.23.0",
     # Static analysis
     "ruff>=0.4.7",
     "radon>=6.0.1",

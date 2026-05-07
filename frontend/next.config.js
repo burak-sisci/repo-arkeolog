@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Docker'da küçük image için standalone server bundle
+  output: "standalone",
   async rewrites() {
     return [
       {

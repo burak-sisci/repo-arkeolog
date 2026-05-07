@@ -10,6 +10,7 @@ import git
 
 from app.pipeline.chunker import chunk_repo, LANG_EXTENSIONS
 from app.pipeline.embedder import embed_chunks
+from app.config import settings
 from app.utils.progress import push_progress
 
 logger = logging.getLogger(__name__)
@@ -65,8 +66,15 @@ async def mine_repo(analysis_id: str, repo_url: str, branch: str = "main") -> tu
         chunks.sort(key=lambda c: (order.get(c.chunk_type, 3), len(c.file_path)))
         chunks = chunks[:MAX_CHUNKS]
 
-    # Embedding devre dışı (chat/RAG kapalı, Gemini kotası yok)
-    # await embed_chunks(analysis_id, chunks)
+    # Embedding adımı: yalnız QDRANT_URL set edilmişse ve Gemini key varsa çalışır.
+    if settings.qdrant_url and settings.gemini_api_key:
+        await push_progress(analysis_id, "mining", f"{len(chunks)} chunk embed ediliyor...", 20)
+        try:
+            await embed_chunks(analysis_id, chunks)
+        except Exception as e:
+            logger.warning(f"Embedding atlandı (chat/RAG kapanır): {e}")
+    else:
+        logger.info("QDRANT_URL veya GEMINI_API_KEY yok — embedding atlanıyor (chat/RAG kapalı).")
 
     await push_progress(analysis_id, "mining", "Kazı tamamlandı.", 30)
     return tmp_dir, metadata
