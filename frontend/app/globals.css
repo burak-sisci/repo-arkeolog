@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-rgb: 248, 250, 252;
+}
+
+html.dark {
+  --foreground-rgb: 226, 232, 240;
+  --background-rgb: 15, 23, 42;
+  color-scheme: dark;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Cytoscape container */
+.cy-container {
+  width: 100%;
+  height: 500px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+html.dark ::-webkit-scrollbar-track { background: #1e293b; }
+html.dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+/* vis-timeline dark overrides */
+html.dark .vis-timeline { border-color: #334155 !important; background: #1e293b; }
+html.dark .vis-item { background: #334155 !important; color: #e2e8f0 !important; border-color: #475569 !important; }
+html.dark .vis-time-axis .vis-text { color: #94a3b8 !important; }
+html.dark .vis-time-axis .vis-grid { border-color: #334155 !important; }
+html.dark .vis-panel.vis-center,
+html.dark .vis-panel.vis-left,
+html.dark .vis-panel.vis-right { border-color: #334155 !important; }

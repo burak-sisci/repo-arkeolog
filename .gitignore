@@ -1,0 +1,35 @@
+# Frontend
+frontend/.next/
+frontend/node_modules/
+frontend/.env.local
+frontend/out/
+frontend/build/
+
+# Backend
+backend/.venv/
+backend/venv/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/.env
+backend/*.egg-info/
+backend/repoarkeolog_backend.egg-info/
+
+# Alembic cache
+backend/alembic/__pycache__/
+backend/alembic/versions/__pycache__/
+
+# Repos cloned during analysis
+/tmp/
+*.tmp
+
+# IDE / editör
+.vscode/
+.idea/
+*.swp
+
+# Claude / yerel ayarlar
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
