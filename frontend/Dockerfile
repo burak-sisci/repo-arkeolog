@@ -22,6 +22,7 @@ ENV NEXT_PUBLIC_WS_URL=${NEXT_PUBLIC_WS_URL}
 ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
+RUN mkdir -p /app/public
 
 # ── Stage 3: runtime ───────────────────────────────────────
 FROM node:20-alpine AS runner
