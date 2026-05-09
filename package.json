@@ -1,0 +1,14 @@
+{
+  "name": "repoarkeolog",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c magenta,cyan \"npm run api\" \"npm run web\"",
+    "api": "cd backend && python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload",
+    "web": "wait-on -t 120000 tcp:127.0.0.1:8000 && cd frontend && npm run dev",
+    "install:all": "npm install && cd frontend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "wait-on": "^8.0.2"
+  }
+}
