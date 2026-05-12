@@ -36,13 +36,14 @@ Aynı proje içinden:
    ```
    DATABASE_URL=${{Postgres.DATABASE_URL}}
    REDIS_URL=${{Redis.REDIS_URL}}
-   CEREBRAS_API_KEY=<senin Cerebras key>
+   CEREBRAS_API_KEY=<senin Cerebras key>     # 5 ajanın hepsi için zorunlu
    CORS_ORIGINS=https://frontend-xxx.up.railway.app
-   QDRANT_URL=
-   GEMINI_API_KEY=
-   GROQ_API_KEY=
+   QDRANT_URL=                                # opsiyonel — boş kalırsa chat kapanır
+   GEMINI_API_KEY=                            # opsiyonel — chat/RAG için
+   GROQ_API_KEY=                              # opsiyonel — şu an ajanlar Groq kullanmıyor
    ```
    > `CORS_ORIGINS` değerini Frontend domain'ini aldıktan sonra güncelle.
+   > Yalnızca `CEREBRAS_API_KEY` zorunludur; diğerleri boş bırakılabilir.
 
 ---
 
@@ -101,7 +102,7 @@ Backend container ilk kalkışında `start-web.sh` içindeki `alembic upgrade he
 - [ ] `POST /api/analyze` 202 dönüyor
 - [ ] WebSocket `/ws/progress/<id>` bağlanıyor (Network tab → "WS")
 - [ ] Worker logları "celery@... ready" gösteriyor
-- [ ] Cerebras `qwen-3-235b` çağrısı 200 dönüyor (Worker log)
+- [ ] Cerebras `qwen-3-235b-a22b-instruct-2507` çağrısı 200 dönüyor (Worker log)
 - [ ] CORS hatası yok (Browser console)
 
 ---

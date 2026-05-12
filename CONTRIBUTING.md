@@ -74,7 +74,7 @@ Kuralı bilmiyorsan `--force` yerine `--force-with-lease` kullan: yanlışlıkla
 
 ## 3. AI-Augmented Development *(şartname §5)*
 
-Proje, **Cerebras Inference** üzerinden çalışan iki AI yapısını simüle eder:
+Proje, **Cerebras Inference** üzerinden çalışan iki AI yapısını simüle eder. Çalışma zamanında tüm beş ürün ajanı (Plan, Mimar, Tarihçi, Dedektif, Onboarding) `qwen-3-235b-a22b-instruct-2507` modeli üzerinde çalışır.
 
 ### 3.1. Plan Agent
 - Geliştirme öncesi mimari plan ve alt görevleri çıkarır.
@@ -119,7 +119,7 @@ Proje tesliminden önce kodun tamamı Cerebras qwen-3-235b ile **Refactoring + O
 
 ## 5. Yerel Geliştirme Kurulumu
 
-[README.md → Hızlı Başlangıç](README.md#hızlı-başlangıç) bölümüne bak.
+[README.md → Hızlı Başlangıç](README.md#hızlı-başlangıç) bölümüne bak. Windows kullanıcıları için Celery'yi `--pool=solo` flag'i ile başlatmak şarttır.
 
 ---
 
